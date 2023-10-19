@@ -21,7 +21,7 @@ function showSuccess(input) {
 // Check email is valid
 function checkEmail(input) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if(re.test(input.value.trim())) {
+  if (re.test(input.value.trim())) {
     showSuccess(input);
   } else {
     showError(input, 'Email is not valid');
@@ -39,15 +39,15 @@ function checkRequired(inputArr) {
   });
 }
 
-// Check input length
+// Check input length 
 function checkLength(input, min, max) {
   if (input.value.length < min) {
     showError(input, `${getFieldName(input)} must be at least ${min} characters`);
   } else if (input.value.length > max) {
-    showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+    showError(input, `${getFieldName(input)} must be at least ${min} characters`);
   } else {
     showSuccess(input);
-  }
+  } 
 }
 
 // Check passwords match
