@@ -3,6 +3,8 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const togglePassword1 = document.getElementById('toggle-password1');
+const togglePassword2 = document.getElementById('toggle-password2');
 
 // Show input error message
 function showError(input, message) {
@@ -61,6 +63,43 @@ function checkPasswordsMatch(input1, input2) {
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
+
+// Password strength meter
+password.addEventListener('input', updatePasswordStrengthMeter);
+password2.addEventListener('input', updatePasswordStrengthMeter);
+
+function updatePasswordStrengthMeter(event) {
+  const input = event.target;
+  const meter = document.getElementById(`password-strength-meter${input.id === 'password' ? '1' : '2'}`);
+
+  meter.style.display = 'block';
+
+  if (input.value.length > 10) {
+    meter.style.background = 'green';
+  } else if (input.value.length > 5) {
+    meter.style.background = 'orange';
+  } else {
+    meter.style.background = 'red';
+  }
+
+  if (input.value.length === 0) {
+    meter.style.display = 'none';
+  }
+}
+
+// Toggle password visibility
+togglePassword1.addEventListener('change', function() {
+  togglePasswordVisibility(password, this.checked);
+});
+
+togglePassword1.addEventListener('change', function() {
+  togglePasswordVisibility(password2, this.checked);
+});
+
+function togglePasswordVisibility(input, isChecked) {
+  input.type = isChecked ? 'text' : 'password';
+}
+
 
 // Event listeners
 form.addEventListener('submit', function (e) {

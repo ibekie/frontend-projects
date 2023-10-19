@@ -10,6 +10,7 @@
   <div class="container">
     <form id="form" class="form">
       <h2>Register With Us</h2>
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwc2hvcHxlbnwwfHwwfHx8Mg%3D%3D" alt="peoplel holding different coffee drinks">
       <div class="form-control">
         <label for="username">Username</label>
         <input type="text" id="username" placeholder="Enter username">
@@ -23,12 +24,23 @@
       <div class="form-control">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter password">
+        <div id="password-strength-meter1" style="display: none;"></div>
         <small>Error Message</small>
+        <div class="checkbox-container">
+          <input type="checkbox" id="toggle-password1">
+          <label for="toggle-password1">Show Password</label>
+        </div>
       </div>
+      
       <div class="form-control">
         <label for="password2">Confirm Password</label>
         <input type="password" id="password2" placeholder="Enter password again">
+        <div id="password-strength-meter2" style="display: none;"></div>
         <small>Error Message</small>
+        <div class="checkbox-container">
+          <input type="checkbox" id="toggle-password2">
+          <label for="toggle-password2">Show Password</label>
+        </div>
       </div>
       <button>Submit</button>
     </form>
